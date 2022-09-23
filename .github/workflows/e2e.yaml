@@ -1,0 +1,14 @@
+name: e2e
+
+on:
+  push:
+    branches:
+      - 'test-workflow-trigger'
+  workflow_dispatch:
+#test
+jobs:
+  e2e:
+    uses: tripleo-ci/openstack-k8s-operators-ci/.github/workflows/reusable-workflow-e2e.yaml@check_jobs
+    with:
+      operator_name: cinder-operator
+    secrets: inherit
